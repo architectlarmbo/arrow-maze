@@ -1,0 +1,220 @@
+/* ============ PHASE 2: STYLE (CSS) ============ */
+:root {
+  --bg: #fff7ec;
+  --card: #ffffff;
+  --ink: #2b1d0e;
+  --muted: #8a6f55;
+  --dot: #e6d6bc;
+  --btn: #c0362c;
+  --btnink: #ffffff;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1c1610;
+    --card: #2a2118;
+    --ink: #fbeedb;
+    --muted: #c2a584;
+    --dot: #4a3925;
+    --btn: #e8a33d;
+    --btnink: #1c1610;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #1c1610;
+  --card: #2a2118;
+  --ink: #fbeedb;
+  --muted: #c2a584;
+  --dot: #4a3925;
+  --btn: #e8a33d;
+  --btnink: #1c1610;
+}
+
+html {
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Calibri, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  user-select: none;
+}
+
+h1 {
+  margin: 4px 0 0;
+  font-family: Cambria, Georgia, serif;
+  font-size: 28px;
+}
+
+.bar {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 17px;
+}
+
+.bar b {
+  color: var(--ink);
+}
+
+#hearts {
+  font-size: 22px;
+  letter-spacing: 2px;
+}
+
+canvas {
+  background: var(--card);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 1/1;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+  touch-action: manipulation;
+}
+
+button {
+  background: var(--btn);
+  color: var(--btnink);
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 14px;
+  max-width: 420px;
+  text-align: center;
+  margin: 0;
+}
+
+#overlay,
+#pauseMenu {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+#overlay .box,
+#pauseMenu .box {
+  background: var(--card);
+  padding: 28px;
+  border-radius: 16px;
+  text-align: center;
+  max-width: 320px;
+  width: 100%;
+}
+
+#overlay h2,
+#pauseMenu h2 {
+  margin: 0 0 8px;
+  font-family: Cambria, Georgia, serif;
+}
+
+/* ============ STAGE 1: SCREENS AND MENUS ============ */
+.screen {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.screen.active {
+  display: flex;
+}
+
+.tagline {
+  color: var(--muted);
+  font-size: 18px;
+  margin: 0 0 8px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 260px;
+}
+
+.menu button {
+  font-size: 18px;
+  padding: 14px;
+}
+
+button.secondary {
+  background: transparent;
+  color: var(--ink);
+  border: 2px solid var(--btn);
+}
+
+.panel {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 20px;
+  width: 100%;
+  max-width: 420px;
+  text-align: left;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+}
+
+.panel h2 {
+  margin: 0 0 8px;
+  font-family: Cambria, Georgia, serif;
+}
+
+.panel p {
+  margin: 12px 0 6px;
+}
+
+.panel ol {
+  margin: 0;
+  padding-left: 20px;
+  line-height: 1.6;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+}
+
+button.choice {
+  background: var(--bg);
+  color: var(--ink);
+  border: 2px solid transparent;
+}
+
+button.choice.selected {
+  border-color: var(--btn);
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Larmbo Mufasa</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Larmbo Mufasa</h1>
+
+    <!-- SCREEN 1: START -->
+    <section id="screen-start" class="screen active">
+      <p class="tagline">Slide every arrow off the board!</p>
+      <div class="menu">
+        <button id="playBtn">Play</button>
+        <button class="secondary" data-go="howto">How to play</button>
+        <button class="secondary" id="startSettingsBtn">Settings</button>
+      </div>
+    </section>
+
+    <!-- SCREEN 2: THE GAME -->
+    <section id="screen-game" class="screen">
+      <div class="bar">
+        <span>Level <b id="lvl">1</b></span>
+        <span id="hearts"></span>
+        <button id="hintBtn">Hint</button>
+        <button id="pauseBtn">Pause</button>
+      </div>
+
+      <canvas id="game" width="420" height="420"></canvas>
+
+      <p class="hint">
+        Tap an arrow that has a clear path to the edge. A blocked arrow costs a
+        heart.
+      </p>
+    </section>
+
+    <!-- SCREEN 3: HOW TO PLAY -->
+    <section id="screen-howto" class="screen">
+      <div class="panel">
+        <h2>How to play</h2>
+        <ol>
+          <li>Every arrow points in one direction.</li>
+          <li>Tap an arrow to slide it off the board.</li>
+          <li>An arrow can only leave if nothing is in its way.</li>
+          <li>Tapping a blocked arrow costs you a heart.</li>
+          <li>You have 3 hearts. Lose them all and the level restarts.</li>
+          <li>Clear every arrow to win the level.</li>
+        </ol>
+        <p>Stuck? The Hint button shows an arrow you can safely tap.</p>
+      </div>
+      <button data-go="start">Back</button>
+    </section>
+
+    <!-- SCREEN 4: SETTINGS -->
+    <section id="screen-settings" class="screen">
+      <div class="panel">
+        <h2>Settings</h2>
+        <p>Theme</p>
+        <div class="row">
+          <button class="choice" data-theme-choice="auto">Auto</button>
+          <button class="choice" data-theme-choice="light">Light</button>
+          <button class="choice" data-theme-choice="dark">Dark</button>
+        </div>
+        <p>Progress</p>
+        <button class="secondary" id="resetProgressBtn">
+          Reset to level 1
+        </button>
+      </div>
+      <button id="settingsBackBtn">Back</button>
+    </section>
+
+    <!-- POPUP: LEVEL COMPLETE / OUT OF HEARTS -->
+    <div id="overlay">
+      <div class="box">
+        <h2 id="ovTitle"></h2>
+        <p id="ovText"></p>
+        <button id="ovBtn">Next level</button>
+      </div>
+    </div>
+
+    <!-- POPUP: PAUSE MENU -->
+    <div id="pauseMenu">
+      <div class="box">
+        <h2>Paused</h2>
+        <div class="menu">
+          <button id="resumeBtn">Resume</button>
+          <button class="secondary" id="restartBtn">Restart level</button>
+          <button class="secondary" id="pauseSettingsBtn">Settings</button>
+          <button class="secondary" id="homeBtn">Home</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/game.js"></script>
+  </body>
+</html>
